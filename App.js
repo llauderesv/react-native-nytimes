@@ -5,28 +5,12 @@
  * @format
  * @flow
  */
+import 'react-native-gesture-handler';
 import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
-import WeatherProject from './components/WeatherProject';
-import BookList from './components/BookLists';
+import Main from './src/components/Main';
 
 function App() {
-  return (
-    <View style={styles.container}>
-      {/* <WeatherProject /> */}
-      <BookList />
-    </View>
-  );
+  return <Main />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: '150px',
-    height: '500px',
-  },
-});
 
 export default App;
