@@ -2,7 +2,7 @@ import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    flex: 2,
+    flex: 1,
     zIndex: 999,
     marginLeft: 20,
   },
@@ -21,6 +21,7 @@ export default StyleSheet.create({
     fontSize: 18,
   },
   cover: {
+    flex: 1,
     height: '100%',
     marginHorizontal: 5,
     justifyContent: 'flex-end',

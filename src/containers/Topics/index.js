@@ -14,26 +14,27 @@ const uppercaseLetter = str =>
 function Topic({data, selected, onSelect}) {
   return (
     <View style={styles.container}>
-      <Header style={styles.topics} fontSize={30}>
-        Discover
-      </Header>
-      <FlatList
-        data={data}
-        extraData={selected}
-        style={{paddingLeft: 15}}
-        horizontal={true}
-        keyExtractor={item => item.id.toString()}
-        showsHorizontalScrollIndicator={false}
-        renderItem={({item}) => (
-          <Item
-            key={item.id}
-            id={item.id}
-            onSelect={onSelect}
-            selected={!!selected.get(item.id)}>
-            {uppercaseLetter(item.topic)}
-          </Item>
-        )}
-      />
+      <View style={styles.discover}>
+        <Header fontSize={30}>Discover</Header>
+      </View>
+      <View style={styles.list}>
+        <FlatList
+          data={data}
+          extraData={selected}
+          horizontal={true}
+          keyExtractor={item => item.id.toString()}
+          showsHorizontalScrollIndicator={false}
+          renderItem={({item}) => (
+            <Item
+              key={item.id}
+              id={item.id}
+              onSelect={onSelect}
+              selected={!!selected.get(item.id)}>
+              {uppercaseLetter(item.topic)}
+            </Item>
+          )}
+        />
+      </View>
     </View>
   );
 }

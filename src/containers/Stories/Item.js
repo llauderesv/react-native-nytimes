@@ -10,16 +10,16 @@ import Tag from '../../components/Tag';
 import styles from './style';
 import {time} from '../../utils';
 
-const BASE_WIDTH = 75;
+const DEVICE_WIDTH = Dimensions.get('window').width;
+
 function Item({title, img, section, published_date, uri}) {
   const {navigation} = useContext(MainContext);
 
-  const itemWidth = useMemo(
-    () =>
-      Math.round(((Dimensions.get('window').width - BASE_WIDTH) * 10) / 1000) *
-      100,
-    [BASE_WIDTH],
-  );
+  // Get the width of item base on the size of the device window
+  // to make it 1/4 width size
+  const itemWidth = useMemo(() => Math.round(DEVICE_WIDTH / 1.3), [
+    DEVICE_WIDTH,
+  ]);
 
   return (
     <ImageBackground
