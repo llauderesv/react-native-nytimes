@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View} from 'react-native';
 import {WebView} from 'react-native-webview';
-import LoadingIndicator from './LoadingIndicator';
+import LoadingIndicator from '../../components/LoadingIndicator';
+import styles from './style';
 
 function Details({navigation}) {
   const [loading, setLoading] = useState(true);
@@ -17,13 +18,5 @@ function Details({navigation}) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  webview: {zIndex: 998},
-});
 
 export default Details;

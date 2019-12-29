@@ -1,5 +1,6 @@
 import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import {View, Text} from 'react-native';
+import styles from './style';
 
 function Tag({section, style = null}) {
   return (
@@ -10,19 +11,5 @@ function Tag({section, style = null}) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    backgroundColor: '#66a1ee',
-    borderRadius: 3,
-  },
-  section: {
-    padding: 5,
-    fontSize: 13,
-    fontWeight: 'bold',
-    color: '#fff',
-    textTransform: 'uppercase',
-  },
-});
 
 export default Tag;

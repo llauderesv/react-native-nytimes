@@ -1,12 +1,13 @@
 import React, {useState, useCallback, useEffect} from 'react';
-import {View, StyleSheet, StatusBar, SafeAreaView} from 'react-native';
+import {View, StatusBar, SafeAreaView} from 'react-native';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
-import MainContext from '../context/MainContext';
-import Topics from './Topics';
-import TopStories from './TopStories';
-import TopTrending from './TopTrending';
-import Details from './Details';
+import MainContext from '../../context/MainContext';
+import Topics from '../Topics';
+import Stories from '../Stories';
+import Trending from '../Trending';
+import Details from '../Details';
+import styles from './style';
 
 const topics = [
   {id: 1, topic: 'technology'},
@@ -41,9 +42,7 @@ function Main({navigation}) {
     [selected],
   );
 
-  useEffect(() => {
-    onSelect(1);
-  }, []);
+  useEffect(() => onSelect(1), []);
 
   return (
     <View style={styles.main}>
@@ -51,39 +50,21 @@ function Main({navigation}) {
 
       <MainContext.Provider value={{navigation: navigation}}>
         {/* Discover */}
-        <View style={styles.headerContainer}>
-          <SafeAreaView>
-            <Topics data={topics} onSelect={onSelect} selected={selected} />
-            <TopStories topic={topic} />
-          </SafeAreaView>
-        </View>
+        <SafeAreaView style={styles.headerContainer}>
+          {/* Topics */}
+          <Topics data={topics} onSelect={onSelect} selected={selected} />
+          {/* Top Stories */}
+          <Stories topic={topic} />
+        </SafeAreaView>
 
-        {/* Trending */}
+        {/* Top Trending */}
         <View style={styles.topTrendingContainer}>
-          <TopTrending />
+          <Trending />
         </View>
       </MainContext.Provider>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  main: {
-    flex: 1,
-    width: '100%',
-    height: '100%',
-  },
-  headerContainer: {
-    flex: 2.5,
-    backgroundColor: '#326AF4',
-    borderBottomLeftRadius: 25,
-    zIndex: 998,
-  },
-  topTrendingContainer: {
-    paddingTop: 90,
-    flex: 3,
-  },
-});
 
 const AppNavigator = createStackNavigator({
   Main: {screen: Main, navigationOptions: {header: null}},

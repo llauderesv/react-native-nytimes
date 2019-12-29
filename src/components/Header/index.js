@@ -1,5 +1,6 @@
 import React from 'react';
-import {Text, StyleSheet} from 'react-native';
+import {Text} from 'react-native';
+import styles from './style';
 
 function Header({children, fontSize = 0, style = null}) {
   return (
@@ -9,12 +10,5 @@ function Header({children, fontSize = 0, style = null}) {
     </Text>
   );
 }
-
-const styles = StyleSheet.create({
-  header: {
-    fontWeight: '700',
-    color: '#fff',
-  },
-});
 
 export default Header;
