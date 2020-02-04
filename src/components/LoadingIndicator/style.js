@@ -1,6 +1,6 @@
-import {StyleSheet} from 'react-native';
+import {DynamicStyleSheet, DynamicValue} from 'react-native-dark-mode';
 
-export default StyleSheet.create({
+export default new DynamicStyleSheet({
   loadingContainer: {
     zIndex: 999,
     flex: 1,
@@ -17,6 +17,9 @@ export default StyleSheet.create({
     width: '30%',
     borderRadius: 5,
     padding: 20,
-    backgroundColor: 'rgba(0,0,0,0.6)',
+    backgroundColor: new DynamicValue(
+      'rgba(0,0,0,0.6)',
+      'rgba(255,255,255,0.3)',
+    ),
   },
 });

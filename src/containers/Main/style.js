@@ -1,7 +1,10 @@
-import {StyleSheet} from 'react-native';
+import {DynamicStyleSheet, DynamicValue} from 'react-native-dark-mode';
 
-export default StyleSheet.create({
-  main: {flex: 1},
+export default new DynamicStyleSheet({
+  main: {
+    flex: 1,
+    backgroundColor: new DynamicValue('white', 'black'),
+  },
   headerContainer: {
     flex: 1,
     backgroundColor: '#326AF4',

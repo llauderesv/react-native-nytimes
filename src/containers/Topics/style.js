@@ -11,7 +11,7 @@ export default StyleSheet.create({
   },
   discover: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   list: {
     flex: 1,

@@ -1,6 +1,6 @@
-import {StyleSheet} from 'react-native';
+import {DynamicStyleSheet, DynamicValue} from 'react-native-dark-mode';
 
-export default StyleSheet.create({
+export default new DynamicStyleSheet({
   container: {
     flex: 1,
     marginLeft: 20,
@@ -8,7 +8,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   header: {
-    color: '#000',
+    color: new DynamicValue('black', 'white'),
   },
   wrapper: {
     height: '100%',
@@ -32,6 +32,7 @@ export default StyleSheet.create({
   title: {
     fontWeight: 'bold',
     fontSize: 18,
+    color: new DynamicValue('black', 'white'),
   },
   updatedDate: {
     color: '#A1A4AA',

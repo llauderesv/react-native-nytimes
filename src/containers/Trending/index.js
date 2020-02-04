@@ -1,13 +1,16 @@
 import React, {useMemo} from 'react';
 import {SafeAreaView, View, FlatList} from 'react-native';
+import {useDynamicStyleSheet} from 'react-native-dark-mode';
 import {API_KEY} from '../../config/axios';
 import useFetch from '../../hooks/useFetch';
 import Header from '../../components/Header';
 import LoadingIndicator from '../../components/LoadingIndicator';
 import Item from './Item';
-import styles from './style';
+import dynamicStyles from './style';
 
 function TopTrending() {
+  const styles = useDynamicStyleSheet(dynamicStyles);
+
   const {data, loading, fetch} = useFetch(
     `mostpopular/v2/viewed/1.json?api-key=${API_KEY}`,
     [],

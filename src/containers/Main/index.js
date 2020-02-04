@@ -2,12 +2,13 @@ import React, {useState, useCallback, useEffect} from 'react';
 import {View, StatusBar, SafeAreaView} from 'react-native';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
+import {useDynamicStyleSheet} from 'react-native-dark-mode';
 import MainContext from '../../context/MainContext';
 import Topics from '../Topics';
 import Stories from '../Stories';
 import Trending from '../Trending';
 import Details from '../Details';
-import styles from './style';
+import dynamicStyles from './style';
 
 const topics = [
   {id: 1, topic: 'technology'},
@@ -28,6 +29,9 @@ const topics = [
 function Main({navigation}) {
   const [selected, setSelected] = useState(new Map());
   const [topic, setTopic] = useState(topics[0].topic);
+
+  // Use Dynamic Dark mode stylesheet when user toggle to dark mode in their devices.
+  const styles = useDynamicStyleSheet(dynamicStyles);
 
   // Select Item in Flat list
   const onSelect = useCallback(

@@ -15,7 +15,10 @@ function TopStories({topic}) {
   );
 
   const filteredData = useMemo(
-    () => data.filter(item => item.multimedia.length > 0),
+    () =>
+      data.filter(
+        item => Array.isArray(item.multimedia) && item.multimedia.length > 0,
+      ),
     [data],
   );
 

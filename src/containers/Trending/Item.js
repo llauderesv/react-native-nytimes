@@ -1,11 +1,13 @@
 import React, {useContext, memo} from 'react';
 import {TouchableOpacity, Image, View, Text} from 'react-native';
+import {useDynamicStyleSheet} from 'react-native-dark-mode';
 import {time} from '../../utils';
 import MainContext from '../../context/MainContext';
 import Tag from '../../components/Tag';
-import styles from './style';
+import dynamicStyles from './style';
 
 function Item({title, img, section, published_date, uri}) {
+  const styles = useDynamicStyleSheet(dynamicStyles);
   const {navigation} = useContext(MainContext);
 
   return (
