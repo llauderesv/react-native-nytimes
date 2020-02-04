@@ -7,7 +7,6 @@ import LoadingIndicator from '../../components/LoadingIndicator';
 import Item from './Item';
 import styles from './style';
 
-
 function TopStories({topic}) {
   const {data, loading} = useFetch(
     `topstories/v2/${topic}.json?api-key=${API_KEY}`,
@@ -19,7 +18,6 @@ function TopStories({topic}) {
     () => data.filter(item => item.multimedia.length > 0),
     [data],
   );
-
 
   return (
     <View style={styles.container}>
